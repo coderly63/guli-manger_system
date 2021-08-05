@@ -1,20 +1,23 @@
-
-import axios from 'axios'
-import './App.css';
-
-function App() {
-  const test = async () => {
-    console.log(123);
-    const res = await axios('http://localhost:5000/manage/user/list')
-    console.log(res);
+import React, { Component } from "react";
+import { message } from "antd";
+import "antd/dist/antd.less";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./pages/login/login";
+import Admin from "./pages/admin/admin";
+export default class App extends Component {
+  handleClick = () => {
+    message.success("点击点击点击点击点击点击");
+  };
+  render() {
+    return (
+      <div>
+        <Router>
+          <Switch>
+            <Route path="/login" component={Login}></Route>
+            <Route path="/admin" component={Admin}></Route>
+          </Switch>
+        </Router>
+      </div>
+    );
   }
-  return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={test}>按钮</button>
-      </header>
-    </div>
-  );
 }
-
-export default App;
