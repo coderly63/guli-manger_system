@@ -1,0 +1,20 @@
+.left {
+  background-color: #116dac;
+}
+.left .title {
+  padding-left: 10px;
+  display: flex;
+}
+.left .title img {
+  width: 30px;
+  height: 30px;
+  line-height: 80px;
+  margin-top: 20px;
+  margin-right: 5px;
+}
+.left .title h2 {
+  padding: 10px 0;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}

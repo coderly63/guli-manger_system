@@ -13,7 +13,7 @@ export default class login extends Component {
     if (res.status === 200) {
       message.success("登陆成功");
       User.saveUser(res.user);
-      this.props.history.push("/");
+      this.props.history.push("/admin");
     } else message.error(res.errors[0].msg);
   };
   render() {
