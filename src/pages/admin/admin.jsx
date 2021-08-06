@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import handleUser from "../../utils/store";
 import Bottom from "../../components/layout/bottom";
 import Left from "../../components/layout/left";
 import Top from "../../components/layout/top";
@@ -17,35 +16,41 @@ const { Header, Footer, Sider, Content } = Layout;
 
 export default class admin extends Component {
   render() {
-    const user = handleUser.getUser();
-    if (!user) this.props.history.replace("/login");
+    const auth = window.localStorage.getItem("token");
+    if (!auth) this.props.history.replace("/login");
     return (
-      <Layout style={{ height: "100vh" }}>
-        <Sider>
-          <Left></Left>
-        </Sider>
-        <Layout>
-          <Header style={{ backgroundColor: "#fff" }}>
-            <Top></Top>
-          </Header>
-          <Content>
-            <Switch>
-              <Redirect from="/" exact to="/home" />
-              <Route path="/home" component={Home} />
-              <Route path="/category" component={Category} />
-              <Route path="/product" component={Product} />
-              <Route path="/user" component={User} />
-              <Route path="/role" component={Role} />
-              <Route path="/charts/bar" component={Bar} />
-              <Route path="/charts/pie" component={Pie} />
-              <Route path="/charts/line" component={Line} />
-            </Switch>
-          </Content>
-          <Footer style={{ backgroundColor: "#fff" }}>
-            <Bottom></Bottom>
-          </Footer>
-        </Layout>
-      </Layout>
+      <>
+        {auth ? (
+          <Layout style={{ height: "100vh" }}>
+            <Sider>
+              <Left></Left>
+            </Sider>
+            <Layout>
+              <Header style={{ padding: "0" }}>
+                <Top></Top>
+              </Header>
+              <Content>
+                <Switch>
+                  <Redirect from="/" exact to="/home" />
+                  <Route path="/home" component={Home} />
+                  <Route path="/category" component={Category} />
+                  <Route path="/product" component={Product} />
+                  <Route path="/user" component={User} />
+                  <Route path="/role" component={Role} />
+                  <Route path="/charts/bar" component={Bar} />
+                  <Route path="/charts/pie" component={Pie} />
+                  <Route path="/charts/line" component={Line} />
+                </Switch>
+              </Content>
+              <Footer style={{ backgroundColor: "#fff" }}>
+                <Bottom></Bottom>
+              </Footer>
+            </Layout>
+          </Layout>
+        ) : (
+          ""
+        )}
+      </>
     );
   }
 }

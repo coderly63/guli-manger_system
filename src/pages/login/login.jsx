@@ -5,15 +5,15 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 //导入网络请求函数
 import { userLogin } from "../../api/user";
 //导入本地存储函数
-import User from "../../utils/store";
 export default class login extends Component {
   onFinish = async (user) => {
     const res = await userLogin({ user });
     console.log(res);
     if (res.status === 200) {
       message.success("登陆成功");
-      User.saveUser(res.user);
-      this.props.history.push("/admin");
+      window.localStorage.setItem("token", res.token);
+      window.localStorage.setItem("user", JSON.stringify(res.user));
+      this.props.history.push("/");
     } else message.error(res.errors[0].msg);
   };
   render() {
