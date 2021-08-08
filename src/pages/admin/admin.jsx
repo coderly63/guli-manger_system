@@ -21,15 +21,15 @@ export default class admin extends Component {
     return (
       <>
         {auth ? (
-          <Layout style={{ height: "100vh" }}>
-            <Sider>
+          <Layout>
+            <Sider style={{ height: "100vh" }}>
               <Left></Left>
             </Sider>
             <Layout>
               <Header style={{ padding: "0" }}>
                 <Top></Top>
               </Header>
-              <Content>
+              <Content style={{ padding: "20px" }}>
                 <Switch>
                   <Redirect from="/" exact to="/home" />
                   <Route path="/home" component={Home} />

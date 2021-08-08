@@ -30,12 +30,12 @@ class Left extends Component {
     const path = this.props.location.pathname;
     return (
       <div className="left">
-          <Link to="/home" className="title">
-            <img src={png} alt="title" />
-            <h2>谷粒后台</h2>
-          </Link>
+        <Link to="/home" className="title">
+          <img src={png} alt="title" />
+          <h2>谷粒后台</h2>
+        </Link>
         <div style={{ width: 200 }}>
-          <Menu defaultSelectedKeys={[path]} mode="inline" theme="dark">
+          <Menu selectedKeys={[path]} mode="inline" theme="dark">
             {this.getMenuListNode(menuList)}
           </Menu>
         </div>
