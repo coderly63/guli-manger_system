@@ -29,7 +29,7 @@ export default class admin extends Component {
               <Header style={{ padding: "0" }}>
                 <Top></Top>
               </Header>
-              <Content style={{ padding: "20px" }}>
+              <Content style={{ padding: "20px", minWidth: "1000px" }}>
                 <Switch>
                   <Redirect from="/" exact to="/home" />
                   <Route path="/home" component={Home} />

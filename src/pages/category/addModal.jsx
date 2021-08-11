@@ -36,6 +36,7 @@ export default class addModal extends Component {
   render() {
     const { showStatus, name } = this.props;
     const defaultKey = name[name.length - 1]._id + "";
+    console.log(defaultKey);
     const { goods } = this.state;
     return (
       <div>

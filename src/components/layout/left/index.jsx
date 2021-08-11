@@ -27,7 +27,8 @@ class Left extends Component {
     });
   }
   render() {
-    const path = this.props.location.pathname;
+    let path = this.props.location.pathname;
+    if (path.indexOf("/product") !== -1) path = "/product";
     return (
       <div className="left">
         <Link to="/home" className="title">

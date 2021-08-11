@@ -23,7 +23,7 @@ class Top extends Component {
   }
   getTitle(menuList, path) {
     for (let item of menuList) {
-      if (item.to === path) return item.title;
+      if (path.indexOf(item.to) !== -1) return item.title;
       else if (item.children) {
         let title = this.getTitle(item.children, path);
         if (title) return title;
