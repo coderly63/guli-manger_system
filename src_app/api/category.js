@@ -1,4 +1,4 @@
-import axios from "./";
+import axios from ".";
 
 export function searchCategory(cateId = 0) {
   return axios.get("/category/" + cateId);

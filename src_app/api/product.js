@@ -1,4 +1,4 @@
-import axios from "./";
+import axios from ".";
 
 export function uploadFiles(files) {
   return axios.post("/product/upload", files);
